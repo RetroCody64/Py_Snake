@@ -202,4 +202,7 @@ https://stackoverflow.com/questions/40566585/how-to-change-the-name-of-a-pygame-
 --noconsole
 --onefile
 --icon=file.filetype
+
+Main Theme: "Satori's Theme 8 bit - Touhou 11 [LSDJ]" (https://www.youtube.com/watch?v=lKHEiRuaa-s&list=PLzjkiYUjXuevVG0fTOX4GCTzbU0ooHQ-O&index=39)
+Easter Egg Theme: "Metal Gear Solid 3: Snake Eater - Snake Eater" (https://www.youtube.com/watch?v=m2OR_JaXDaM)
 """
