@@ -1,0 +1,1 @@
+Use the keyboard keys (up, down, left, right) to move and p to pause the game.
