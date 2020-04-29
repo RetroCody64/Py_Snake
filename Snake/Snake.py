@@ -119,7 +119,7 @@ while 1:  # Forever loop
     if paused:  # If game paused
         pygame.mixer.music.pause()  # Pause mixer
 
-    if xy_snake_dir != [0, 0]:  # If mixer not active
+    if xy_snake_dir != [0, 0] and paused:  # If mixer not active
         pygame.mixer.music.unpause()  # Unpause music
         paused = False  # Not paused
 
