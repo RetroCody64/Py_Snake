@@ -35,6 +35,7 @@ fruit_in_snake = False  # Detect if fruit is inside snake
 snake_in_snake = False  # Detect if snake is inside itself
 music_state = (0, 255, 0)  # Music label color
 startup = True  # Check if program is starting (draw screen despite snake not moving)
+paused = False  # Check if game paused
 big_boss = 0  # Store b presses
 
 SCREEN = pygame.display.set_mode((400, 400))  # Set screen size (x, y) (Must be list)
@@ -58,7 +59,7 @@ while 1:  # Forever loop
             sys.exit()  # Exit program
 
 # Detect snake collision with itself
-    if xy_snake_dir != [0, 0]:  # If snake is moving
+    if not paused:  # If snake is moving
         for part in snake[9:]:  # For each part starting on index 9  (9 can never collide with 0 cuz it's too close to it and it's far away that it's not colliding with the head)
             if pygame.Rect.colliderect(snake[0], part):  # If head (snake[0]) collides with part
                 snake_in_snake = True  # Snake collided
@@ -91,6 +92,7 @@ while 1:  # Forever loop
 
     if keys[pygame.K_p]:  # If p pressed
         xy_snake_dir = [0, 0]  # Pause game
+        paused = True  # Game is now paused
 
     if keys[pygame.K_b]:  # If b pressed
         if big_boss < 3:  # If big boss counter is less than 3
@@ -114,11 +116,12 @@ while 1:  # Forever loop
                 music_state = (0, 255, 0)  # Music label color
 
 # Pause/Unpause mixer according to paused state
-    if xy_snake_dir == [0, 0]:  # If game paused
+    if paused:  # If game paused
         pygame.mixer.music.pause()  # Pause mixer
 
-    else:  # If mixer not active
+    if xy_snake_dir != [0, 0]:  # If mixer not active
         pygame.mixer.music.unpause()  # Unpause music
+        paused = False  # Not paused
 
 # Check if snake ate fruit
     if pygame.Rect.colliderect(snake[0], fruit):  # Check if head collided with fruit
@@ -149,7 +152,7 @@ while 1:  # Forever loop
                 fruit_in_snake = False  # End loop
 
 # If snake is moving keep saving the head's position (draw long snek)
-    if xy_snake_dir != [0, 0]:  # If snake is moving
+    if not paused:  # If snake is moving
         snake.insert(1, snake[0])  # Add head's values to snake list on index 1
         if len(snake) - 1 > snake_length:  # If snake has more head values than it's supposed to
             del(snake[-1])  # Delete last stored head
