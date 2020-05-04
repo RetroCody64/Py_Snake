@@ -34,7 +34,6 @@ snake_length = 0  # Snake length
 fruit_in_snake = False  # Detect if fruit is inside snake
 snake_in_snake = False  # Detect if snake is inside itself
 music_state = (0, 255, 0)  # Music label color
-startup = True  # Check if program is starting (draw screen despite snake not moving)
 paused = False  # Check if game paused
 big_boss = 0  # Store b presses
 
