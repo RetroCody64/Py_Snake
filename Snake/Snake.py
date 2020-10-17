@@ -1,6 +1,6 @@
 """
 Program name: Snake
-Author: Ricardo Lopes (Alex128)
+Author: *REDACTED*
 Original Release Date: 26/04/20
 Current Version Release Date: 28/04/20
 Build: 1.1
